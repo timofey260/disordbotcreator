@@ -3,9 +3,7 @@
 
 easy for make discord bot
 
-# 1.0.3
-
-  * you can type name of bot
+# 1.0.4
   
   ===
   

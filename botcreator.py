@@ -1,4 +1,6 @@
-bot = open('bot.py', "w", encoding='utf-8')
+filename = input('botname: ')
+file = filename + '.py'
+bot = open(file, "w+", encoding='utf-8')
 to = input('token: ')
 bot.write('token = "%0s"' %(to))
 bot.write('# made by botcreator.py\n'
@@ -6,7 +8,7 @@ bot.write('# made by botcreator.py\n'
            'import discord\n'
            'class MyClient(discord.Client):\n'
             '    async def on_ready(self):\n'
-            "       print('Logged on as {0}!'.format(self.user))\n")
+            "       print('Logged on as %0s!')\n" %(filename))
 bot.write("    async def on_message(self, message):\n"
           "        print(str(message.channel) + ':\\n' + str(message.created_at) + ' ' + str(message.author) + ':' + str(message.content))\n"
           "        if message.author == self.user:\n"
@@ -36,3 +38,4 @@ while run:
     else:
         print('is not correct!')
     f = 1
+bot.close()

@@ -37,12 +37,10 @@ while run:
         bot.write('client = MyClient()\n'
                   'client.run(token)\n')
         bot.close()
-        with open(filep) as f:
-            line_count = 0
-            for line in f:
-                line_count = line_count + 1
+
+        llen = len(open(filep).readlines())
         config = open('config.txt', 'w+', encoding='utf-8')
-        config.write(str(line_count))
+        config.write(str(llen))
         config.close()
         run = False
     else:

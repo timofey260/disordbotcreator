@@ -1,8 +1,9 @@
 filename = input('botname: ')
 filep = filename + '.py'
-bot = open(filep, "w+", encoding='utf-8')
+filet = filename + '.txt'
+bot = open(filet, "w+", encoding='utf-8')
 to = input('token: ')
-bot.write('token = "%0s"' % (to))
+bot.write('token = "%0s"' % to)
 bot.write('# made by botcreator\n'
           'import discord\n'
           'class MyClient(discord.Client):\n'
@@ -11,21 +12,23 @@ bot.write('# made by botcreator\n'
           "    async def on_message(self, message):\n"
           "        print(str(message.author) + ': ' + str(message.content))\n"
           "        if message.author == self.user:\n"
-          "            return\n" % (filename))
-f = 0
+          "            return\n" % filename)
 
 
 def menud(pa1, pa2):
     print("[" + str(pa1) + "] " + pa2)
 
+f = 0
 run = True
 while run:
     menud(1, 'ontext')
-    menud(2, 'end')
+    menud(2, 'exit')
+    menud(3, 'create py')
     name = input('>>> ')
     if name == '1':
         ontext = input('user text: ')
         text = input('bot text: ')
+        bot = open(filet, 'a')
         if f == 0:
             bot.write("        if message.content == '%1s':\n"
                       "            await message.channel.send('%1s')\n" % (ontext, text))
@@ -34,16 +37,19 @@ while run:
                       "            await message.channel.send('%1s')\n" % (ontext, text))
 
     elif name == '2':
-        bot.write('client = MyClient()\n'
-                  'client.run(token)\n')
-        bot.close()
-
-        llen = len(open(filep).readlines())
-        config = open('config.txt', 'w+', encoding='utf-8')
-        config.write(str(llen))
-        config.close()
         run = False
+
+    elif name == '3':
+        bot.close()
+        botl = open(filet).readlines()
+        botf = open(filep, 'w+')
+        for x in botl:
+            botf.write(x)
+        botf.write('client = MyClient()\n'
+                   'client.run(token)\n')
+
+        botf.close()
+
     else:
         print('is not correct!')
     f = 1
-

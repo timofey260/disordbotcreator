@@ -33,3 +33,5 @@ while run:
         bot.write('client = MyClient()\n'
                      'client.run(config.token)\n')
         run = False
+    else:
+        print('is not correct!')

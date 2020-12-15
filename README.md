@@ -3,9 +3,9 @@
 
 easy for make discord bot
 
-# 1.0.2
+# 1.0.3
 
-  *fixed
+  *you can type name of bot
   ===
   
 create bot for discord

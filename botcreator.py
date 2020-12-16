@@ -1,5 +1,7 @@
 def menud(pa1, pa2):
     print("[" + str(pa1) + "] " + pa2)
+
+
 menud(1, 'crate')
 menud(2, 'open')
 mode = input()
@@ -19,8 +21,6 @@ if mode == '1':
               "        print(str(message.author) + ': ' + str(message.content))\n"
               "        if message.author == self.user:\n"
               "            return\n" % filename)
-
-    f = 0
     run = True
     while run:
         menud(1, 'ontext')
@@ -51,14 +51,13 @@ if mode == '1':
 
         else:
             print('is not correct!')
-        f = 1
+
 elif mode == '2':
     filename = input('filename: ')
     filep = filename + '.py'
     filet = filename + '.txt'
     bot = open(filet, 'a', encoding='utf-8')
     run = True
-    f = 0
     while run:
         menud(1, 'ontext')
         menud(2, 'exit')
@@ -68,12 +67,9 @@ elif mode == '2':
             ontext = input('user text: ')
             text = input('bot text: ')
             bot = open(filet, 'a')
-            if f == 0:
-                bot.write("        if message.content == '%1s':\n"
-                          "            await message.channel.send('%1s')\n" % (ontext, text))
-            else:
-                bot.write("        elif message.content == '%1s':\n"
-                          "            await message.channel.send('%1s')\n" % (ontext, text))
+
+            bot.write("        elif message.content == '%1s':\n"
+                      "            await message.channel.send('%1s')\n" % (ontext, text))
 
         elif name == '2':
             run = False
@@ -91,4 +87,3 @@ elif mode == '2':
 
         else:
             print('is not correct!')
-        f = 1

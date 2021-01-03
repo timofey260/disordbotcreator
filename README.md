@@ -3,9 +3,9 @@
 
 easy for make discord bot
 
-# 1.0.5
+# 1.0.6
   
-  * update mode added
+  * fix
   
   ===
   
